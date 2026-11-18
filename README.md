@@ -58,3 +58,9 @@ For the supplied data, the subquery finds parents `2`, `5`, and `8`, producing:
 | 6 | 8 | 6 Leaf |
 | 8 | 5 | 8 Inner |
 | 9 | 8 | 9 Leaf |
+
+## Company Hierarchy Counts
+
+Count the distinct lead managers, senior managers, managers, and employees for each company, while retaining companies with no matching hierarchy rows. `COUNT(DISTINCT ...)` handles duplicate records and prevents inflated counts from the multiplication of rows across the one-to-many joins. The final `ORDER BY` sorts the company codes lexicographically as strings.
+
+The complete schema, sample data, and query are in [`company_hierarchy_counts.sql`](company_hierarchy_counts.sql). For this sample, company `C3` has zero counts, and the `C10` rows are excluded because `C10` is not present in `Company`.
